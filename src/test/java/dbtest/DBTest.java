@@ -13,7 +13,7 @@ public class DBTest {
 	public void testMySQL() throws SQLException {
 		DB db = new DB();
 		assertTrue("Able to connect to MySQL instance",
-				db.connect("jdbc:mysql://localhost/travis", "com.mysql.cj.jdbc.Driver", "travis", ""));
+				db.connect("jdbc:mysql://localhost/test", "com.mysql.cj.jdbc.Driver", "travis", ""));
 		db.close();
 	}
 
@@ -21,7 +21,7 @@ public class DBTest {
 	public void testPostgresql() throws SQLException {
 		DB db = new DB();
 		assertTrue("Able to connect to Postgresql instance",
-				db.connect("jdbc:postgresql://localhost:5432/travis", "org.postgresql.Driver", "postgres", "test"));
+				db.connect("jdbc:postgresql://localhost:5432/test", "org.postgresql.Driver", "postgres", ""));
 		db.close();
 	}
 }
