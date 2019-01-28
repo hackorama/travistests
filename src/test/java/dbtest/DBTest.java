@@ -25,7 +25,7 @@ public class DBTest {
 	public void testPostgresql() throws SQLException {
 		DB db = new DB();
 		assertTrue("Able to connect to Postgresql instance",
-				db.connect(DB.getEnv("PG_URL", "jdbc:postgresql://localhost:5432/testt"), "org.postgresql.Driver",
+				db.connect(DB.getEnv("PG_URL", "jdbc:postgresql://localhost:5432/test"), "org.postgresql.Driver",
 						DB.getEnv("PG_USER", "postgres"), DB.getEnv("PG_PASS", "")));
 		db.close();
 	}

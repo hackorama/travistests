@@ -6,7 +6,7 @@ services:
 
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
-  - psql -c 'CREATE DATABASE "test";' -U postgres
+  - psql -c 'CREATE DATABASE test;' -U postgres
 
 sudo: false
 
