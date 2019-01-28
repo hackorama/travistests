@@ -16,7 +16,8 @@ public class DBTest {
 	public void testMySQL() throws SQLException {
 		DB db = new DB();
 		assertTrue("Able to connect to MySQL instance",
-				db.connect("jdbc:mysql://localhost/test", "com.mysql.cj.jdbc.Driver", "travis", ""));
+				db.connect(DB.getEnv("MYSQL_URL", "jdbc:mysql://localhost/test"), "com.mysql.cj.jdbc.Driver",
+						DB.getEnv("MYSQL_USER", "travis"), DB.getEnv("MYSQL_PASS", "")));
 		db.close();
 	}
 
@@ -24,7 +25,8 @@ public class DBTest {
 	public void testPostgresql() throws SQLException {
 		DB db = new DB();
 		assertTrue("Able to connect to Postgresql instance",
-				db.connect("jdbc:postgresql://localhost:5432/test", "org.postgresql.Driver", "postgres", ""));
+				db.connect(DB.getEnv("PG_URL", "jdbc:postgresql://localhost:5432/testt"), "org.postgresql.Driver",
+						DB.getEnv("PG_USER", "postgres"), DB.getEnv("PG_PASS", "")));
 		db.close();
 	}
 
@@ -32,7 +34,7 @@ public class DBTest {
 	public void testRedis() {
 		Jedis jedis = new Jedis("localhost");
 		System.out.println(jedis.info());
-		assertTrue(jedis.ping().toLowerCase().contains("pong"));
+		assertTrue("Able to connect to Redis server", jedis.ping().toLowerCase().contains("pong"));
 		jedis.close();
 	}
 }

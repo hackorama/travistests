@@ -9,6 +9,11 @@ import org.apache.commons.dbutils.DbUtils;
 public class DB {
 
 	private Connection conn;
+	
+	public static String getEnv(String envName, String defaultValue) {
+		String value = System.getenv(envName);
+		return (value == null) ? defaultValue : value;
+	}
 
 	public boolean connect(String url, String driver, String user, String password) throws SQLException {
 		DbUtils.loadDriver(driver);
