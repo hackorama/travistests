@@ -4,10 +4,10 @@ services:
   - postgresql
 
 before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS travis;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
 
 before_script:
-  - psql -c 'CREATE DATABASE travis;' -U postgres
+  - psql -c 'CREATE DATABASE test;' -U postgres
 
 sudo: false
 
