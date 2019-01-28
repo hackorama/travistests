@@ -4,6 +4,9 @@
 package dbtest;
 
 import org.junit.Test;
+
+import redis.clients.jedis.Jedis;
+
 import static org.junit.Assert.*;
 
 import java.sql.SQLException;
@@ -23,5 +26,13 @@ public class DBTest {
 		assertTrue("Able to connect to Postgresql instance",
 				db.connect("jdbc:postgresql://localhost:5432/test", "org.postgresql.Driver", "postgres", ""));
 		db.close();
+	}
+
+	@Test
+	public void testRedis() {
+		Jedis jedis = new Jedis("localhost");
+		System.out.println(jedis.info());
+		assertTrue(jedis.ping().toLowerCase().contains("pong"));
+		jedis.close();
 	}
 }
