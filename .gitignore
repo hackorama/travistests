@@ -6,6 +6,7 @@
 # java 
 *.class
 *.jar
+!gradle/wrapper/gradle-wrapper.jar
 
 # build
 build/
