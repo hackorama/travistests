@@ -12,7 +12,7 @@ before_install:
   - nohup bash -c "cd kafka && bin/zookeeper-server-start.sh config/zookeeper.properties &"
   - nohup bash -c "cd kafka && bin/kafka-server-start.sh config/server.properties &"
   - sleep 5
-  - bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+  - kafka/bin/kafka-topics.sh --list --bootstrap-server localhost:9092
 
 sudo: false
 
