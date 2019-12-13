@@ -7,7 +7,7 @@ services:
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
   - psql -c 'CREATE DATABASE test;' -U postgres
-  - wget http://www.us.apache.org/dist/kafka/0.8.2.1/kafka_2.10-0.8.2.1.tgz -O kafka.tgz
+  - wget http://www.us.apache.org/dist/kafka/2.3.1/kafka_2.12-2.3.1.tgz -O kafka.tgz
   - mkdir -p kafka && tar xzf kafka.tgz -C kafka --strip-components 1
   - nohup bash -c "cd kafka && bin/zookeeper-server-start.sh config/zookeeper.properties &"
   - nohup bash -c "cd kafka && bin/kafka-server-start.sh config/server.properties &"
